@@ -3,8 +3,8 @@ from frappe import _
 def get_data():
 	return [
 		{
-			"module_name": "Iwex Apps",
+			"module_name": "iWEX Apps",
 			"type": "module",
-			"label": _("Iwex Apps")
+			"label": _("iWEX Apps")
 		}
 	]
