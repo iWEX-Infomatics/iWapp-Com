@@ -1,8 +1,8 @@
 app_name = "iwapp_com"
-app_title = "Iwex Apps"
-app_publisher = "Iwex"
-app_description = "Iwex"
-app_email = "iwex@gmail.com"
+app_title = "iWEX Apps"
+app_publisher = "iWEX"
+app_description = "iWEX"
+app_email = "emails@iwex.in"
 app_license = "MIT"
 
 # Includes in <head>
