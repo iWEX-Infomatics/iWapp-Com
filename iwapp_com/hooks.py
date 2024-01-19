@@ -27,7 +27,7 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"Lead" : "public/js/lead.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -116,13 +116,15 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Lead": {
+		"after_insert": "iwapp_com.events.lead.after_insert",
+        "validate": "iwapp_com.events.lead.validate"
+        # "on_update": "iwapp_com.events.lead.on_update"
+		# "on_cancel": "method",
+		# "on_trash": "method"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
@@ -213,3 +215,31 @@ app_license = "MIT"
 # auth_hooks = [
 # 	"iwapp_com.auth.validate"
 # ]
+
+fixtures = [{
+    "dt":"Custom Field",
+    "filters": [
+        ["name", "in", (
+            "Lead-custom_address", "Lead-custom_contact",
+			"Lead-custom_lead_created","Lead-custom_address_created",
+			"Lead-custom_gstin","Lead-custom_county",
+			"Lead-custom_taluk","Lead-custom_post_office",
+			"Lead-custom_post_office","Lead-custom_address_line_1",
+			"Lead-custom_postal_code"
+        )]
+    ]
+    },
+    {"dt":"Property Setter",
+        "filters": [
+            ["doc_type", "in", (
+                "Lead"
+            )]
+        ]
+    }
+    # {
+    #     "dt": "Translation",
+    #     "filters": [
+    #             ["name", "in", ("ec0adfc6e5")]
+    #     ],
+    # }
+]
