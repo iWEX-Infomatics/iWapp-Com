@@ -1,9 +1,9 @@
 [project]
 name = "iwapp_com"
 authors = [
-    { name = "Iwex", email = "iwex@gmail.com"}
+    { name = "iWEX", email = "emails@iwex.in"}
 ]
-description = "Iwex"
+description = "iWEX"
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]

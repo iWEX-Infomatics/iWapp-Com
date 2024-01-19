@@ -1,6 +1,6 @@
-## Iwex Apps
+## iWEX Apps
 
-Iwex
+iWEX
 
 #### License
 
