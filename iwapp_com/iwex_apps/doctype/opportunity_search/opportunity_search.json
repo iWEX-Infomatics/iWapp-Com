@@ -1,16 +1,20 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{YY}{MM}{DD}-{#####}-{first_name} {middle_name} {last_name}",
  "creation": "2024-01-22 11:44:18.863960",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "mobile_no",
   "email",
+  "middle_name",
   "party_type",
+  "tag_id",
   "column_break_rpnd",
   "organisation_name",
   "first_name",
+  "last_name",
   "party_name"
  ],
  "fields": [
@@ -52,22 +56,36 @@
   {
    "fieldname": "party_type",
    "fieldtype": "Data",
-   "label": "Party Type",
-   "read_only": 1
+   "label": "Customer/Lead"
   },
   {
    "fieldname": "party_name",
    "fieldtype": "Data",
-   "label": "Party Name",
-   "read_only": 1
+   "label": "Customer ID/Lead ID"
+  },
+  {
+   "fieldname": "middle_name",
+   "fieldtype": "Data",
+   "label": "MIddle Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "tag_id",
+   "fieldtype": "Data",
+   "label": "Tag ID"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-22 22:21:48.142027",
+ "modified": "2024-01-23 18:10:17.242979",
  "modified_by": "Administrator",
  "module": "Iwex Apps",
  "name": "Opportunity Search",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

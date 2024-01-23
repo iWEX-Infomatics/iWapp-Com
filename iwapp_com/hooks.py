@@ -123,6 +123,9 @@ doc_events = {
         # "on_update": "iwapp_com.events.lead.on_update"
 		# "on_cancel": "method",
 		# "on_trash": "method"
+	},
+    "Contact": {
+        "validate": "iwapp_com.events.contact.validate"
 	}
 }
 
