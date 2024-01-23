@@ -228,7 +228,12 @@ fixtures = [{
 			"Lead-custom_gstin","Lead-custom_county",
 			"Lead-custom_taluk","Lead-custom_post_office",
 			"Lead-custom_post_office","Lead-custom_address_line_1",
-			"Lead-custom_postal_code"
+			"Lead-custom_postal_code", "Contact-custom_organisation_name",
+            "Contact-custom_mob", "Customer-custom_postal_code",
+            "Customer-custom_country", "Customer-custom_stateprovince",
+            "Customer-custom_county", "Customer-custom_citytown",
+            "Customer-custom_address_line_2", "Customer-custom_section_break_qt6tz",
+            "Customer-custom_address_line_1"
         )]
     ]
     },
