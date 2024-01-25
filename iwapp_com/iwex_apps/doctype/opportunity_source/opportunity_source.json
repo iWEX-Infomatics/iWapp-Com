@@ -1,7 +1,8 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-01-22 11:44:18.863960",
+ "creation": "2024-01-25 10:54:11.878277",
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -22,16 +23,29 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Mobile No",
-   "options": "Phone",
-   "reqd": 1
+   "options": "Phone"
   },
   {
    "fieldname": "email",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Email",
-   "options": "Email",
-   "reqd": 1
+   "options": "Email"
+  },
+  {
+   "fieldname": "middle_name",
+   "fieldtype": "Data",
+   "label": "MIddle Name"
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Data",
+   "label": "Customer/Lead"
+  },
+  {
+   "fieldname": "tag_id",
+   "fieldtype": "Data",
+   "label": "Tag ID"
   },
   {
    "fieldname": "column_break_rpnd",
@@ -41,31 +55,13 @@
    "fieldname": "organisation_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Organisation Name",
-   "reqd": 1,
-   "unique": 1
+   "label": "Organisation Name"
   },
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "First Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "party_type",
-   "fieldtype": "Data",
-   "label": "Customer/Lead"
-  },
-  {
-   "fieldname": "party_name",
-   "fieldtype": "Data",
-   "label": "Customer ID/Lead ID"
-  },
-  {
-   "fieldname": "middle_name",
-   "fieldtype": "Data",
-   "label": "MIddle Name"
+   "label": "First Name"
   },
   {
    "fieldname": "last_name",
@@ -73,27 +69,26 @@
    "label": "Last Name"
   },
   {
-   "fieldname": "tag_id",
+   "fieldname": "party_name",
    "fieldtype": "Data",
-   "label": "Tag ID"
+   "label": "Customer ID/Lead ID"
   }
  ],
  "index_web_pages_for_search": 1,
+ "issingle": 1,
  "links": [],
- "modified": "2024-01-25 09:46:26.016645",
+ "modified": "2024-01-25 10:55:47.846431",
  "modified_by": "Administrator",
  "module": "Iwex Apps",
- "name": "Opportunity Search",
+ "name": "Opportunity Source",
  "owner": "Administrator",
  "permissions": [
   {
    "create": 1,
    "delete": 1,
    "email": 1,
-   "export": 1,
    "print": 1,
    "read": 1,
-   "report": 1,
    "role": "System Manager",
    "share": 1,
    "write": 1

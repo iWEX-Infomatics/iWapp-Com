@@ -28,7 +28,7 @@ app_license = "MIT"
 
 # include js in doctype views
 doctype_js = {"Lead" : "public/js/lead.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+doctype_list_js = {"Customer" : "public/js/customer_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
@@ -233,7 +233,8 @@ fixtures = [{
             "Customer-custom_country", "Customer-custom_stateprovince",
             "Customer-custom_county", "Customer-custom_citytown",
             "Customer-custom_address_line_2", "Customer-custom_section_break_qt6tz",
-            "Customer-custom_address_line_1"
+            "Customer-custom_address_line_1", "Customer-custom_column_break_ubxah",
+            "Customer-custom_contact_created"
         )]
     ]
     },

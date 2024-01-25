@@ -76,7 +76,6 @@ def validate(doc, method):
                 doc.custom_address = address.name
                 frappe.db.set_value("Lead", doc.name, "custom_address_created", 1)
                 frappe.db.set_value("Lead", doc.name, "custom_address", address.name)
-                print(address.name)
                 # doc.reload()
 
         contact = frappe.get_doc("Contact", doc.custom_contact)
@@ -90,7 +89,6 @@ def validate(doc, method):
         contact.address = doc.custom_address
         address = frappe.db.get_value("Dynamic Link", {"link_doctype":"Lead", "link_name":doc.name, "link_title":doc.title, "parenttype":"Address"}, "parent")
         # contact.address = frappe.db.get_value("Dynamic Link", {"link_doctype":"Lead", "link_name":doc.name, "link_title":doc.title, "parenttype":"Address"}, "parent")
-        print("address", address)
         contact.email_ids.clear()
         contact.append("email_ids",{
             "email_id":doc.email_id,
@@ -133,3 +131,26 @@ def create_address(doc,method):
             address.save()
             frappe.db.set_value("Lead", doc.name, "custom_address_created", 1)
             doc.reload()
+
+@frappe.whitelist()
+def update_customer():
+    customer = frappe.db.get_list("Customer", pluck ="name")
+    if customer:
+        for i in customer:
+            contact_exists = frappe.db.exists("Dynamic Link", {"link_doctype":"Customer", "link_name":i})
+            if contact_exists:
+                frappe.db.set_value("Customer", i, "custom_contact_created", 1, update_modified=False)
+            if not contact_exists:
+                contact=frappe.get_doc({
+                'doctype': 'Contact',
+                'company_name': i
+                })
+                contact.append('links',
+                    {
+                        "link_doctype": "Customer",
+                        "link_name":i
+
+                    })
+                contact.insert()
+                contact.save()
+                frappe.db.set_value("Customer", i, "custom_contact_created", 1, update_modified=False)
