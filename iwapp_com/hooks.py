@@ -126,6 +126,9 @@ doc_events = {
 	},
     "Contact": {
         "validate": "iwapp_com.events.contact.validate"
+	},
+     "Customer": {
+        "after_insert": "iwapp_com.events.customer.after_insert"
 	}
 }
 
@@ -234,7 +237,14 @@ fixtures = [{
             "Customer-custom_county", "Customer-custom_citytown",
             "Customer-custom_address_line_2", "Customer-custom_section_break_qt6tz",
             "Customer-custom_address_line_1", "Customer-custom_column_break_ubxah",
-            "Customer-custom_contact_created"
+            "Customer-custom_contact_created", "Customer-custom_address_created",
+            "Customer-custom_designation", "Customer-custom_organisation_name",
+            "Customer-custom_gstin", "Customer-custom_taluk",
+            "Customer-custom_post_office", "Customer-custom_phone",
+            "Customer-custom_mobile_no", "Customer-custom_email",
+            "Customer-custom_last_name", "Customer-custom_last_name",
+            "Customer-custom_first_name", "Address-custom_gstin",
+            "Address-custom_taluk", "Address-custom_post_office"
         )]
     ]
     },
