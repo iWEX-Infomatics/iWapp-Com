@@ -27,7 +27,7 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Lead" : "public/js/lead.js"}
+doctype_js = {"Lead" : "public/js/lead.js", "Employee" : "public/js/employee.js"}
 doctype_list_js = {"Customer" : "public/js/customer_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -129,7 +129,13 @@ doc_events = {
 	},
      "Customer": {
         "after_insert": "iwapp_com.events.customer.after_insert"
-	}
+	},
+     "Supplier": {
+        "after_insert": "iwapp_com.events.supplier.after_insert"
+	},
+    "Employee": {
+        "after_insert": "iwapp_com.events.employee.after_insert"
+	},
 }
 
 # Scheduled Tasks
@@ -244,7 +250,27 @@ fixtures = [{
             "Customer-custom_mobile_no", "Customer-custom_email",
             "Customer-custom_last_name", "Customer-custom_last_name",
             "Customer-custom_first_name", "Address-custom_gstin",
-            "Address-custom_taluk", "Address-custom_post_office"
+            "Address-custom_taluk", "Address-custom_post_office",
+            "Supplier-custom_phone", "Supplier-custom_mobile_no",
+            "Supplier-custom_email", "Supplier-custom_organisation_name",
+            "Supplier-custom_gstin", "Supplier-custom_post_office",
+            "Supplier-custom_taluk", "Supplier-custom_postal_code",
+            "Supplier-custom_column_break_zpehd", "Supplier-custom_citytown",
+            "Supplier-custom_address_line_2", "Supplier-custom_address_line_1",
+            "Supplier-custom_salutation", "Supplier-custom_gender",
+            "Supplier-custom_last_name", "Supplier-custom_middle_name",
+            "Supplier-custom_first_name", "Supplier-custom_section_break_oyobw",
+            "Supplier-custom_county", "Supplier-custom_stateprovince",
+            "Supplier-custom_designation", "Employee-custom_address_html",
+            "Employee-custom_column_break_q4u31", "Employee-custom_address__contact",
+            "Employee-custom_employee_primary_contact", "Employee-custom_employee_primary_address",
+            "Employee-custom_address_html", "Employee-custom_postal_office",
+            "Employee-custom_organisation_name", "Employee-custom_county",
+            "Employee-custom_gstin", "Employee-custom_taluk",
+            "Employee-custom_postal_code", "Employee-custom_country",
+            "Employee-custom_stateprovince", "Employee-custom_citytown",
+            "Employee-custom_address_line_2", "Employee-custom_address_line_1"
+            "Employee-custom_phone"
         )]
     ]
     },

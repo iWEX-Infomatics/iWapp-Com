@@ -4,7 +4,7 @@ import frappe
 def after_insert(doc, method):
     address=frappe.get_doc({
     'doctype': 'Address',
-    'address_title': doc.customer_name,
+    'address_title': doc.first_name,
     'address_type':'Billing',
     'address_line1':doc.custom_address_line_1,
     'address_line2':doc.custom_address_line_2,
@@ -14,48 +14,50 @@ def after_insert(doc, method):
     'country':doc.custom_country,
     'pincode':doc.custom_postal_code,
     'phone':doc.custom_phone,
-    'email_id':doc.custom_email,
     'custom_taluk':doc.custom_taluk,
     'custom_gstin':doc.custom_gstin,
-    'custom_post_office':doc.custom_post_office
+    'custom_post_office':doc.custom_postal_office
     })
+    if doc.prefered_email:
+        address.email_id = doc.prefered_email
     address.append('links',
         {
-            "link_doctype": "Customer",
+            "link_doctype": "Employee",
             "link_name":doc.name
 
         })
     address.insert()
     address.save()
-    frappe.db.set_value("Customer", doc.name, "custom_address_created", 1)
-    frappe.db.set_value("Customer", doc.name, "customer_primary_address", address.name)
+    frappe.db.set_value("Employee", doc.name, "custom_employee_primary_address", address.name)
     doc.reload()
 
     contact=frappe.get_doc({
     'doctype': 'Contact',
-    'address': doc.customer_primary_address,
-    'first_name':doc.custom_first_name,
-    'middle_name':doc.custom_middle_name,
-    'last_name':doc.custom_last_name,
+    'address': address.name,
+    'first_name':doc.first_name,
+    'middle_name':doc.middle_name,
+    'last_name':doc.last_name,
     'salutation':doc.salutation,
-    'designation':doc.custom_designation,
+    'designation':doc.designation,
     'gender':doc.gender,
     'company_name':doc.custom_organisation_name
     })
     contact.append('links',
         {
-            "link_doctype": "Customer",
+            "link_doctype": "Employee",
             "link_name":doc.name
 
         })
-    contact.append("email_ids",{
-            "email_id":doc.custom_email,
-            "is_primary":1
-        })
-    contact.append("phone_nos",{
-            "phone":doc.custom_mobile_no,
-            "is_primary_mobile_no":1
-        })
+    if doc.prefered_email:
+        contact.append("email_ids",{
+                "email_id":doc.prefered_email,
+                "is_primary":1
+            })
+    if doc.cell_number:
+        contact.append("phone_nos",{
+                "phone":doc.cell_number,
+                "is_primary_mobile_no":1
+            })
     if doc.custom_phone:
         contact.append("phone_nos",{
             "phone":doc.custom_phone,
@@ -63,6 +65,6 @@ def after_insert(doc, method):
         })
     contact.insert()
     contact.save()
-    frappe.db.set_value("Customer", doc.name, "custom_contact_created", 1)
-    frappe.db.set_value("Customer", doc.name, "customer_primary_contact", contact.name)
+    # frappe.db.set_value("Customer", doc.name, "custom_contact_created", 1)
+    frappe.db.set_value("Employee", doc.name, "custom_employee_primary_contact", contact.name)
     doc.reload()
