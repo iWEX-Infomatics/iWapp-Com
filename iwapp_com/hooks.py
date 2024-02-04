@@ -270,7 +270,8 @@ fixtures = [{
             "Employee-custom_postal_code", "Employee-custom_country",
             "Employee-custom_stateprovince", "Employee-custom_citytown",
             "Employee-custom_address_line_2", "Employee-custom_address_line_1"
-            "Employee-custom_phone"
+            "Employee-custom_phone", "Employee-custom_section_break_duqk9",
+            "Employee-custom_pincode_details"
         )]
     ]
     },

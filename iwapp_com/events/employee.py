@@ -1,4 +1,6 @@
 import frappe
+import requests
+import json
 
 
 def after_insert(doc, method):
@@ -68,3 +70,33 @@ def after_insert(doc, method):
     # frappe.db.set_value("Customer", doc.name, "custom_contact_created", 1)
     frappe.db.set_value("Employee", doc.name, "custom_employee_primary_contact", contact.name)
     doc.reload()
+
+    if doc.custom_pincode_details:
+        pincode=frappe.get_doc({
+        'doctype': 'Pincode',
+        'country': doc.custom_country,
+        'pincode':doc.custom_postal_code
+        })
+        for i in doc.custom_pincode_details:
+            pincode.append('pincode_details',
+        {
+            "post_office": i.post_office,
+            "taluk":i.taluk,
+            "division":i.division,
+            "district":i.district,
+            "state":i.state
+        })
+        pincode.insert()
+        pincode.save()
+        doc.reload()
+
+@frappe.whitelist()
+def pincode(pin):
+    if pin and len(pin)==6:
+        api=f'https://api.postalpincode.in/pincode/{pin}'
+        response = requests.get(api)
+        if response:
+            pincode = response.text
+            pincode_list = json.loads(pincode)
+            for i in pincode_list:
+                return i.get('PostOffice')
