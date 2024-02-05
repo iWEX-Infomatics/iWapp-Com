@@ -264,13 +264,13 @@ fixtures = [{
             "Supplier-custom_designation", "Employee-custom_address_html",
             "Employee-custom_column_break_q4u31", "Employee-custom_address__contact",
             "Employee-custom_employee_primary_contact", "Employee-custom_employee_primary_address",
-            "Employee-custom_address_html", "Employee-custom_postal_office",
+            "Employee-custom_contact_html", "Employee-custom_postal_office",
             "Employee-custom_organisation_name", "Employee-custom_county",
             "Employee-custom_gstin", "Employee-custom_taluk",
             "Employee-custom_postal_code", "Employee-custom_country",
             "Employee-custom_stateprovince", "Employee-custom_citytown",
-            "Employee-custom_address_line_2", "Employee-custom_address_line_1"
-            "Employee-custom_phone", "Employee-custom_section_break_duqk9",
+            "Employee-custom_address_line_2", "Employee-custom_address_line_1",
+            "Employee-custom_section_break_duqk9","Employee-custom_phone",
             "Employee-custom_pincode_details"
         )]
     ]
