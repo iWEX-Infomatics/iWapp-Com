@@ -248,7 +248,7 @@ fixtures = [{
             "Customer-custom_gstin", "Customer-custom_taluk",
             "Customer-custom_post_office", "Customer-custom_phone",
             "Customer-custom_mobile_no", "Customer-custom_email",
-            "Customer-custom_last_name", "Customer-custom_last_name",
+            "Customer-custom_middle_name", "Customer-custom_last_name",
             "Customer-custom_first_name", "Address-custom_gstin",
             "Address-custom_taluk", "Address-custom_post_office",
             "Supplier-custom_phone", "Supplier-custom_mobile_no",
@@ -271,14 +271,22 @@ fixtures = [{
             "Employee-custom_stateprovince", "Employee-custom_citytown",
             "Employee-custom_address_line_2", "Employee-custom_address_line_1",
             "Employee-custom_section_break_duqk9","Employee-custom_phone",
-            "Employee-custom_pincode_details"
+            "Employee-custom_pincode_details","Employee-custom_same_as_current_address",
+            "Employee-custom_permanent_address_html","Employee-custom_aadhaar_id",
+            "Employee-custom_section_break_h6coe","Employee-custom_permanent_stateprovince",
+            "Employee-custom_permanent_districtcounty", "Employee-custom_permanent_taluk",
+            "Employee-custom_permanent_post_office", "Employee-custom_permanent_citytown",
+            "Employee-custom_permanent_door_building_street", "Employee-custom_permanent_postal_code",
+            "Employee-custom_permanent_country", "Employee-custom_permanent_address"
+            ""
         )]
     ]
     },
     {"dt":"Property Setter",
         "filters": [
             ["doc_type", "in", (
-                "Lead"
+                "Lead",
+                "Employee"
             )]
         ]
     }

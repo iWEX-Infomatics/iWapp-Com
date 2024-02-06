@@ -4,45 +4,107 @@ import json
 
 
 def after_insert(doc, method):
-    address=frappe.get_doc({
-    'doctype': 'Address',
-    'address_title': doc.first_name,
-    'address_type':'Billing',
-    'address_line1':doc.custom_address_line_1,
-    'address_line2':doc.custom_address_line_2,
-    'county':doc.custom_county,
-    'city':doc.custom_citytown,
-    'state':doc.custom_stateprovince,
-    'country':doc.custom_country,
-    'pincode':doc.custom_postal_code,
-    'phone':doc.custom_phone,
-    'custom_taluk':doc.custom_taluk,
-    'custom_gstin':doc.custom_gstin,
-    'custom_post_office':doc.custom_postal_office
-    })
-    if doc.prefered_email:
-        address.email_id = doc.prefered_email
-    address.append('links',
-        {
-            "link_doctype": "Employee",
-            "link_name":doc.name
-
+    if doc.custom_same_as_current_address == 1:
+        c_address=frappe.get_doc({
+        'doctype': 'Address',
+        'address_title': doc.first_name,
+        'address_type':'Billing',
+        'address_line1':doc.custom_address_line_1,
+        # 'address_line2':doc.custom_address_line_2,
+        'county':doc.custom_county,
+        'city':doc.custom_citytown,
+        'state':doc.custom_stateprovince,
+        'country':doc.custom_country,
+        'pincode':doc.custom_postal_code,
+        # 'phone':doc.custom_phone,
+        'custom_taluk':doc.custom_taluk,
+        # 'custom_gstin':doc.custom_gstin,
+        'custom_post_office':doc.custom_postal_office,
+        'email_id':doc.prefered_email
         })
-    address.insert()
-    address.save()
-    frappe.db.set_value("Employee", doc.name, "custom_employee_primary_address", address.name)
-    doc.reload()
+        if doc.prefered_email:
+            c_address.email_id = doc.prefered_email
+        c_address.append('links',
+            {
+                "link_doctype": "Employee",
+                "link_name":doc.name
+
+            })
+        c_address.insert()
+        c_address.save()
+        frappe.db.set_value("Employee", doc.name, "custom_employee_primary_address", c_address.name)
+        doc.reload()
+    else:
+        c_address=frappe.get_doc({
+        'doctype': 'Address',
+        'address_title': doc.employee_name,
+        'address_type':'Current',
+        'address_line1':doc.custom_address_line_1,
+        # 'address_line2':doc.custom_address_line_2,
+        'county':doc.custom_county,
+        'city':doc.custom_citytown,
+        'state':doc.custom_stateprovince,
+        'country':doc.custom_country,
+        'pincode':doc.custom_postal_code,
+        # 'phone':doc.custom_phone,
+        'custom_taluk':doc.custom_taluk,
+        # 'custom_gstin':doc.custom_gstin,
+        'custom_post_office':doc.custom_postal_office,
+        'email_id':doc.prefered_email
+        })
+        # if doc.prefered_email:
+        #     c_address.email_id = doc.prefered_email
+        c_address.append('links',
+            {
+                "link_doctype": "Employee",
+                "link_name":doc.name
+
+            })
+        c_address.insert()
+        c_address.save()
+        frappe.db.set_value("Employee", doc.name, "custom_employee_primary_address", c_address.name)
+        doc.reload()
+
+        p_address=frappe.get_doc({
+        'doctype': 'Address',
+        'address_title': doc.employee_name,
+        'address_type':'Permanent',
+        'address_line1':doc.custom_permanent_door_building_street,
+        # 'address_line2':doc.custom_address_line_2,
+        'county':doc.custom_permanent_districtcounty,
+        'city':doc.custom_permanent_citytown,
+        'state':doc.custom_stateprovince,
+        'country':doc.custom_permanent_country,
+        'pincode':doc.custom_permanent_postal_code,
+        # 'phone':doc.custom_phone,
+        'custom_taluk':doc.custom_permanent_taluk,
+        # 'custom_gstin':doc.custom_gstin,
+        'custom_post_office':doc.custom_permanent_post_office,
+        'email_id':doc.prefered_email
+        })
+        # if doc.prefered_email:
+        #     c_address.email_id = doc.prefered_email
+        p_address.append('links',
+            {
+                "link_doctype": "Employee",
+                "link_name":doc.name
+
+            })
+        p_address.insert()
+        p_address.save()
+        # frappe.db.set_value("Employee", doc.name, "custom_employee_primary_address", address.name)
+        doc.reload()
 
     contact=frappe.get_doc({
     'doctype': 'Contact',
-    'address': address.name,
+    'address': c_address.name,
     'first_name':doc.first_name,
     'middle_name':doc.middle_name,
     'last_name':doc.last_name,
     'salutation':doc.salutation,
     'designation':doc.designation,
     'gender':doc.gender,
-    'company_name':doc.custom_organisation_name
+    # 'company_name':doc.custom_organisation_name
     })
     contact.append('links',
         {
@@ -60,11 +122,11 @@ def after_insert(doc, method):
                 "phone":doc.cell_number,
                 "is_primary_mobile_no":1
             })
-    if doc.custom_phone:
-        contact.append("phone_nos",{
-            "phone":doc.custom_phone,
-            "is_primary_phone":1
-        })
+    # if doc.custom_phone:
+    #     contact.append("phone_nos",{
+    #         "phone":doc.custom_phone,
+    #         "is_primary_phone":1
+    #     })
     contact.insert()
     contact.save()
     # frappe.db.set_value("Customer", doc.name, "custom_contact_created", 1)
