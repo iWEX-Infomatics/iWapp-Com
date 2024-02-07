@@ -7,17 +7,19 @@ def after_insert(doc, method):
     'address_title': doc.supplier_name,
     'address_type':'Billing',
     'address_line1':doc.custom_address_line_1,
-    'address_line2':doc.custom_address_line_2,
+    # 'address_line2':doc.custom_address_line_2,
     'county':doc.custom_county,
     'city':doc.custom_citytown,
     'state':doc.custom_stateprovince,
     'country':doc.country,
     'pincode':doc.custom_postal_code,
-    'phone':doc.custom_phone,
+    # 'phone':doc.custom_phone,
     'email_id':doc.custom_email,
     'custom_taluk':doc.custom_taluk,
     'custom_gstin':doc.custom_gstin,
-    'custom_post_office':doc.custom_post_office
+    'custom_post_office':doc.custom_post_office,
+    'is_primary_address':1,
+    'is_shipping_address':1
     })
     address.append('links',
         {
@@ -39,6 +41,8 @@ def after_insert(doc, method):
     'salutation':doc.custom_salutation,
     'designation':doc.custom_designation,
     'gender':doc.custom_gender,
+    'is_primary_contact':1,
+    'is_billing_contact':1,
     'company_name':doc.custom_organisation_name
     })
     contact.append('links',
@@ -55,12 +59,31 @@ def after_insert(doc, method):
             "phone":doc.custom_mobile_no,
             "is_primary_mobile_no":1
         })
-    if doc.custom_phone:
-        contact.append("phone_nos",{
-            "phone":doc.custom_phone,
-            "is_primary_phone":1
-        })
+    # if doc.custom_phone:
+    #     contact.append("phone_nos",{
+    #         "phone":doc.custom_phone,
+    #         "is_primary_phone":1
+    #     })
     contact.insert()
     contact.save()
     frappe.db.set_value("Supplier", doc.name, "supplier_primary_contact", contact.name)
     doc.reload()
+
+    if doc.custom_pincode_details:
+        pincode=frappe.get_doc({
+        'doctype': 'Pincode',
+        'country': doc.country,
+        'pincode':doc.custom_postal_code
+        })
+        for i in doc.custom_pincode_details:
+            pincode.append('pincode_details',
+        {
+            "post_office": i.post_office,
+            "taluk":i.taluk,
+            "division":i.division,
+            "district":i.district,
+            "state":i.state
+        })
+        pincode.insert()
+        pincode.save()
+        doc.reload()

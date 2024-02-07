@@ -27,7 +27,8 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Lead" : "public/js/lead.js", "Employee" : "public/js/employee.js"}
+doctype_js = {"Lead" : "public/js/lead.js", "Supplier" : "public/js/supplier.js",
+"Employee" : "public/js/employee.js", "Customer" : "public/js/customer.js"}
 doctype_list_js = {"Customer" : "public/js/customer_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -241,26 +242,26 @@ fixtures = [{
             "Contact-custom_mob", "Customer-custom_postal_code",
             "Customer-custom_country", "Customer-custom_stateprovince",
             "Customer-custom_county", "Customer-custom_citytown",
-            "Customer-custom_address_line_2", "Customer-custom_section_break_qt6tz",
-            "Customer-custom_address_line_1", "Customer-custom_column_break_ubxah",
-            "Customer-custom_contact_created", "Customer-custom_address_created",
-            "Customer-custom_designation", "Customer-custom_organisation_name",
+            "Customer-custom_address_line_2", "Customer-custom_section_break_qt6tz","Customer-custom_is_primary_billing_address",
+            "Customer-custom_address_line_1", "Customer-custom_column_break_ubxah","Customer-custom_is_primary_shipping_address",
+            "Customer-custom_contact_created", "Customer-custom_address_created","Customer-custom_is_primary_contact",
+            "custom_designation", "Customer-custom_organisation_name","Customer-custom_is_billing_contact",
             "Customer-custom_gstin", "Customer-custom_taluk",
-            "Customer-custom_post_office", "Customer-custom_phone",
-            "Customer-custom_mobile_no", "Customer-custom_email",
-            "Customer-custom_middle_name", "Customer-custom_last_name",
-            "Customer-custom_first_name", "Address-custom_gstin",
+            "Customer-custom_post_office", "Customer-custom_phone","Customer-custom_section_break_3sqq2",
+            "Customer-custom_mobile_no", "Customer-custom_email","Customer-custom_pincode_details",
+            "Customer-custom_middle_name", "Customer-custom_last_name","Customer-custom_department",
+            "Customer-custom_first_name", "Address-custom_gstin","Customer-custom_column_break_klrpv",
             "Address-custom_taluk", "Address-custom_post_office",
-            "Supplier-custom_phone", "Supplier-custom_mobile_no",
-            "Supplier-custom_email", "Supplier-custom_organisation_name",
-            "Supplier-custom_gstin", "Supplier-custom_post_office",
-            "Supplier-custom_taluk", "Supplier-custom_postal_code",
-            "Supplier-custom_column_break_zpehd", "Supplier-custom_citytown",
-            "Supplier-custom_address_line_2", "Supplier-custom_address_line_1",
-            "Supplier-custom_salutation", "Supplier-custom_gender",
-            "Supplier-custom_last_name", "Supplier-custom_middle_name",
-            "Supplier-custom_first_name", "Supplier-custom_section_break_oyobw",
-            "Supplier-custom_county", "Supplier-custom_stateprovince",
+            "Supplier-custom_phone", "Supplier-custom_mobile_no","Supplier-custom_is_primary_billing_address",
+            "Supplier-custom_email", "Supplier-custom_organisation_name", "Supplier-custom__is_primary_shipping_address",
+            "Supplier-custom_gstin", "Supplier-custom_post_office", "Supplier-custom_primary_contact_details",
+            "Supplier-custom_taluk", "Supplier-custom_postal_code", "Supplier-custom_column_break_st3pq",
+            "Supplier-custom_column_break_zpehd", "Supplier-custom_citytown", "Supplier-custom_designation",
+            "Supplier-custom_address_line_2", "Supplier-custom_address_line_1", "Supplier-custom_department",
+            "Supplier-custom_salutation", "Supplier-custom_gender", "Supplier-custom__is_primary_contact",
+            "Supplier-custom_last_name", "Supplier-custom_middle_name", "Supplier-custom__is_billing_contact",
+            "Supplier-custom_first_name", "Supplier-custom_section_break_oyobw", "Supplier-custom_section_break_dcx8s",
+            "Supplier-custom_county", "Supplier-custom_stateprovince", "Supplier-custom_pincode_details",
             "Supplier-custom_designation", "Employee-custom_address_html",
             "Employee-custom_column_break_q4u31", "Employee-custom_address__contact",
             "Employee-custom_employee_primary_contact", "Employee-custom_employee_primary_address",
@@ -277,8 +278,9 @@ fixtures = [{
             "Employee-custom_permanent_districtcounty", "Employee-custom_permanent_taluk",
             "Employee-custom_permanent_post_office", "Employee-custom_permanent_citytown",
             "Employee-custom_permanent_door_building_street", "Employee-custom_permanent_postal_code",
-            "Employee-custom_permanent_country", "Employee-custom_permanent_address"
-            ""
+            "Employee-custom_permanent_country", "Employee-custom_permanent_address",
+            "Employee-custom_current_address", "Employee-custom_permanent_pincode_details",
+            "Employee-custom_address_created"
         )]
     ]
     },
