@@ -151,6 +151,10 @@ def after_insert(doc, method):
         per_pincode.save()
         doc.reload()
 
+def on_update_employee(doc, method):
+    frappe.db.set_value("Employee", doc.name, "custom_address_created", 1)
+    doc.reload()
+
 @frappe.whitelist()
 def pincode(pin):
     if pin and len(pin)==6:

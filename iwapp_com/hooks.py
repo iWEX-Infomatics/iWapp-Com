@@ -135,7 +135,8 @@ doc_events = {
         "after_insert": "iwapp_com.events.supplier.after_insert"
 	},
     "Employee": {
-        "after_insert": "iwapp_com.events.employee.after_insert"
+        "after_insert": "iwapp_com.events.employee.after_insert",
+        "on_update": "iwapp_com.events.employee.on_update_employee"
 	},
 }
 
