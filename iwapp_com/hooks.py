@@ -289,7 +289,9 @@ fixtures = [{
         "filters": [
             ["doc_type", "in", (
                 "Lead",
-                "Employee"
+                "Employee",
+                "Supplier",
+                "Customer"
             )]
         ]
     }
