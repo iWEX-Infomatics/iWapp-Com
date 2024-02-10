@@ -9,6 +9,7 @@ class OpportunitySearch(Document):
 	pass
 	def validate(self):
 		if self.mobile_no and self.email:
+			# put filters to hidden fields in Contact for setting mob no(last10 digits) ang company name(remove suffix)
 			mob_no = frappe.db.get_list('Contact',
 				filters={
 					'custom_mob': ['=', ''],

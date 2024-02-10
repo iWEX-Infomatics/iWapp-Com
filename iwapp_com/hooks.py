@@ -28,7 +28,8 @@ app_license = "MIT"
 
 # include js in doctype views
 doctype_js = {"Lead" : "public/js/lead.js", "Supplier" : "public/js/supplier.js",
-"Employee" : "public/js/employee.js", "Customer" : "public/js/customer.js"}
+"Employee" : "public/js/employee.js", "Customer" : "public/js/customer.js",
+"Opportunity" : "public/js/opportunity.js", "Quotation" : "public/js/quotation.js"}
 doctype_list_js = {"Customer" : "public/js/customer_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -120,10 +121,10 @@ doctype_list_js = {"Customer" : "public/js/customer_list.js"}
 doc_events = {
 	"Lead": {
 		"after_insert": "iwapp_com.events.lead.after_insert",
-        "validate": "iwapp_com.events.lead.validate"
-        # "on_update": "iwapp_com.events.lead.on_update"
-		# "on_cancel": "method",
-		# "on_trash": "method"
+    #     "validate": "iwapp_com.events.lead.validate"
+    #     # "on_update": "iwapp_com.events.lead.on_update"
+	# 	# "on_cancel": "method",
+	# 	# "on_trash": "method"
 	},
     "Contact": {
         "validate": "iwapp_com.events.contact.validate"
@@ -137,6 +138,15 @@ doc_events = {
     "Employee": {
         "after_insert": "iwapp_com.events.employee.after_insert",
         "on_update": "iwapp_com.events.employee.on_update_employee"
+	},
+     "Opportunity": {
+        # "validate": "iwapp_com.events.opportunity.validate",
+        "after_insert": "iwapp_com.events.opportunity.after_insert",
+        "before_insert": "iwapp_com.events.opportunity.before_insert"
+	},
+    "Quotation": {
+        "before_submit": "iwapp_com.events.quotation.before_submit",
+        "after_insert": "iwapp_com.events.quotation.after_insert"
 	},
 }
 
@@ -234,12 +244,12 @@ fixtures = [{
     "dt":"Custom Field",
     "filters": [
         ["name", "in", (
-            "Lead-custom_address", "Lead-custom_contact",
-			"Lead-custom_lead_created","Lead-custom_address_created",
-			"Lead-custom_gstin","Lead-custom_county",
-			"Lead-custom_taluk","Lead-custom_post_office",
-			"Lead-custom_post_office","Lead-custom_address_line_1",
-			"Lead-custom_postal_code", "Contact-custom_organisation_name",
+            # "Lead-custom_address", "Lead-custom_contact",
+			# "Lead-custom_lead_created","Lead-custom_address_created",
+			# "Lead-custom_gstin","Lead-custom_county",
+			# "Lead-custom_taluk","Lead-custom_post_office",
+			# "Lead-custom_post_office","Lead-custom_address_line_1", "Lead-custom_postal_code"
+			"Contact-custom_organisation_name",
             "Contact-custom_mob", "Customer-custom_postal_code",
             "Customer-custom_country", "Customer-custom_stateprovince",
             "Customer-custom_county", "Customer-custom_citytown",
@@ -258,7 +268,7 @@ fixtures = [{
             "Supplier-custom_gstin", "Supplier-custom_post_office", "Supplier-custom_primary_contact_details",
             "Supplier-custom_taluk", "Supplier-custom_postal_code", "Supplier-custom_column_break_st3pq",
             "Supplier-custom_column_break_zpehd", "Supplier-custom_citytown", "Supplier-custom_designation",
-            "Supplier-custom_address_line_2", "Supplier-custom_address_line_1", "Supplier-custom_department",
+            "Supplier-custom_address_line_1", "Supplier-custom_department",
             "Supplier-custom_salutation", "Supplier-custom_gender", "Supplier-custom__is_primary_contact",
             "Supplier-custom_last_name", "Supplier-custom_middle_name", "Supplier-custom__is_billing_contact",
             "Supplier-custom_first_name", "Supplier-custom_section_break_oyobw", "Supplier-custom_section_break_dcx8s",
@@ -281,8 +291,32 @@ fixtures = [{
             "Employee-custom_permanent_door_building_street", "Employee-custom_permanent_postal_code",
             "Employee-custom_permanent_country", "Employee-custom_permanent_address",
             "Employee-custom_current_address", "Employee-custom_permanent_pincode_details",
-            "Employee-custom_address_created"
-        )]
+            "Employee-custom_address_created",
+            "Opportunity-custom_primary_address_details", "Opportunity-custom_mobile",
+            "Opportunity-custom_first_name", "Opportunity-custom_column_break_hi1ob",
+            "Opportunity-custom_email", "Opportunity-custom_organization_name",
+            "Opportunity-custom_check", "Opportunity-custom_customerlead_found",
+            "Opportunity-custom_section_break_v3xoi", "Opportunity-custom_middle_name",
+            "Opportunity-custom_last_name","Opportunity-custom_department",
+            "Opportunity-custom_zippostal_code", "Opportunity-custom_door_building_street",
+            "Opportunity-custom_column_break_g7qs0", "Opportunity-custom_job_title",
+            "Opportunity-custom_whatsapp", "Opportunity-custom_post_office",
+            "Opportunity-custom_districtcounty", "Opportunity-custom_tax_id",
+            "Opportunity-custom_gender","Opportunity-custom_salutation",
+            "Opportunity-custom_opportunity_created","Opportunity-custom_section_break_zlfb3",
+            "Opportunity-custom_pincode_details", "Opportunity-custom_taluk",
+            "Lead-custom_door_building_street", "Lead-custom_zippostal_code", "Lead-custom_department",
+            "Lead-custom_post_office", "Lead-custom_districtcounty", "Lead-custom_taluk",
+            "Quotation-custom_section_break_mclho", "Quotation-custom_mobile", "Quotation-custom_first_name",
+            "Quotation-custom_middle_name", "Quotation-custom_last_name", "Quotation-custom_country",
+            "Quotation-custom_zippostal_code", "Quotation-custom_door_building_street", "Quotation-custom_citytown",
+            "Quotation-custom_post_office", "Quotation-custom_taluk", "Quotation-custom_districtcounty",
+            "Quotation-custom_stateprovince", "Quotation-custom_column_break_vdnw8", "Quotation-custom_primary_contact_details",
+            "Quotation-custom_column_break_jiqch", "Quotation-custom_email", "Quotation-custom_gender",
+            "Quotation-custom_company_name", "Quotation-custom_tax_id", "Quotation-custom_department",
+            "Quotation-custom_salutation", "Quotation-custom_designation", "Quotation-custom_opportunity_saved",
+            "Quotation-custom_section_break_ssgne", "Quotation-custom_pincode_details"
+            )]
     ]
     },
     {"dt":"Property Setter",
@@ -291,7 +325,9 @@ fixtures = [{
                 "Lead",
                 "Employee",
                 "Supplier",
-                "Customer"
+                "Customer",
+                "Opportunity",
+                "Quotation"
             )]
         ]
     }
