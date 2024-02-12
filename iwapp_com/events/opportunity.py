@@ -92,6 +92,7 @@ def get_cust_or_lead(email, mobile, organisation, first_name):
     cleaned_organization_name = remove_suffixes_from_field(organisation)
     for mob in mob_no:
         mob_10_digits = mob.get('mobile_no')[-10:]
+        org_name = ""
         if mob.get('company_name') != None and mob_10_digits:
             org_name = remove_suffixes_from_field(mob.get('company_name'))
             frappe.db.set_value("Contact", mob.get('name'), {"custom_mob": mob_10_digits, "custom_organisation_name":org_name}, update_modified=False)
