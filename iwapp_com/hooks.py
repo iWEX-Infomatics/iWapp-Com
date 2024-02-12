@@ -300,11 +300,12 @@ fixtures = [{
             "Opportunity-custom_last_name","Opportunity-custom_department",
             "Opportunity-custom_zippostal_code", "Opportunity-custom_door_building_street",
             "Opportunity-custom_column_break_g7qs0", "Opportunity-custom_job_title",
-            "Opportunity-custom_whatsapp", "Opportunity-custom_post_office",
-            "Opportunity-custom_districtcounty", "Opportunity-custom_tax_id",
+            "Opportunity-custom_whatsapp", "Opportunity-custom_post_office", "Opportunity-custom_districtcounty",
             "Opportunity-custom_gender","Opportunity-custom_salutation",
             "Opportunity-custom_opportunity_created","Opportunity-custom_section_break_zlfb3",
             "Opportunity-custom_pincode_details", "Opportunity-custom_taluk",
+            "Opportunity-custom_column_break_kv5sr", "Opportunity-custom_opportunity_details",
+            "Opportunity-custom_column_break_qvd4h", "Opportunity-custom_lead_not_found",
             "Lead-custom_door_building_street", "Lead-custom_zippostal_code", "Lead-custom_department",
             "Lead-custom_post_office", "Lead-custom_districtcounty", "Lead-custom_taluk",
             "Quotation-custom_section_break_mclho", "Quotation-custom_mobile", "Quotation-custom_first_name",
@@ -327,7 +328,8 @@ fixtures = [{
                 "Supplier",
                 "Customer",
                 "Opportunity",
-                "Quotation"
+                "Quotation",
+                "Opportunity Item"
             )]
         ]
     }

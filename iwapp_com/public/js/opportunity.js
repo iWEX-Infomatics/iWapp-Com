@@ -103,6 +103,7 @@ frappe.ui.form.on("Opportunity", {
         }
     },
     custom_check: function (frm) {
+        if(frm.doc.custom_email && frm.doc.custom_mobile && frm.doc.custom_organization_name && frm.doc.custom_first_name){
         frappe.call({
             "method": "iwapp_com.events.opportunity.get_cust_or_lead",
             "args": {
@@ -117,9 +118,11 @@ frappe.ui.form.on("Opportunity", {
                     frappe.msgprint("Party Name Updated")
                 } else {
                     frappe.msgprint("No Customer/Lead found")
+                    frm.set_value("custom_lead_not_found", 1)
 
                 }
             }
         })
+    }
     },
 })
