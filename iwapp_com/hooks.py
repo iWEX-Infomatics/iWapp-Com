@@ -262,7 +262,7 @@ fixtures = [{
             "Customer-custom_mobile_no", "Customer-custom_email","Customer-custom_pincode_details",
             "Customer-custom_middle_name", "Customer-custom_last_name","Customer-custom_department",
             "Customer-custom_first_name", "Address-custom_gstin","Customer-custom_column_break_klrpv",
-            "Address-custom_taluk", "Address-custom_post_office",
+            "Address-custom_taluk", "Address-custom_post_office", "Address-custom_gst_category",
             "Supplier-custom_phone", "Supplier-custom_mobile_no","Supplier-custom_is_primary_billing_address",
             "Supplier-custom_email", "Supplier-custom_organisation_name", "Supplier-custom__is_primary_shipping_address",
             "Supplier-custom_gstin", "Supplier-custom_post_office", "Supplier-custom_primary_contact_details",
@@ -305,7 +305,7 @@ fixtures = [{
             "Opportunity-custom_opportunity_created","Opportunity-custom_section_break_zlfb3",
             "Opportunity-custom_pincode_details", "Opportunity-custom_taluk",
             "Opportunity-custom_column_break_kv5sr", "Opportunity-custom_opportunity_details",
-            "Opportunity-custom_column_break_qvd4h", "Opportunity-custom_lead_not_found",
+            "Opportunity-custom_column_break_qvd4h", "Opportunity-custom_lead_not_found", "Opportunity-custom_dummy_lead",
             "Lead-custom_door_building_street", "Lead-custom_zippostal_code", "Lead-custom_department",
             "Lead-custom_post_office", "Lead-custom_districtcounty", "Lead-custom_taluk",
             "Quotation-custom_section_break_mclho", "Quotation-custom_mobile", "Quotation-custom_first_name",
@@ -316,7 +316,8 @@ fixtures = [{
             "Quotation-custom_column_break_jiqch", "Quotation-custom_email", "Quotation-custom_gender",
             "Quotation-custom_company_name", "Quotation-custom_tax_id", "Quotation-custom_department",
             "Quotation-custom_salutation", "Quotation-custom_designation", "Quotation-custom_opportunity_saved",
-            "Quotation-custom_section_break_ssgne", "Quotation-custom_pincode_details"
+            "Quotation-custom_section_break_ssgne", "Quotation-custom_pincode_details", "Quotation-custom_section_break_bc7sm",
+            "Quotation-custom_gst_category", "Quotation-custom_column_break_mxu4w"
             )]
     ]
     },

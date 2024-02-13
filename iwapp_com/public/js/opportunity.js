@@ -11,6 +11,7 @@ frappe.ui.form.on("Opportunity", {
                 callback: function (r) {
                     if (r.message) {
                         frm.set_value("party_name", r.message)
+                        frm.set_value("custom_dummy_lead", r.message)
                     }
                 }
             })
@@ -119,6 +120,7 @@ frappe.ui.form.on("Opportunity", {
                 } else {
                     frappe.msgprint("No Customer/Lead found")
                     frm.set_value("custom_lead_not_found", 1)
+                    frm.set_value("party_name", frm.doc.custom_dummy_lead)
 
                 }
             }
