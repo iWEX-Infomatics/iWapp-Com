@@ -257,7 +257,7 @@ fixtures = [{
             "Customer-custom_address_line_1", "Customer-custom_column_break_ubxah","Customer-custom_is_primary_shipping_address",
             "Customer-custom_contact_created", "Customer-custom_address_created","Customer-custom_is_primary_contact",
             "custom_designation", "Customer-custom_organisation_name","Customer-custom_is_billing_contact",
-            "Customer-custom_gstin", "Customer-custom_taluk",
+            "Customer-custom_gstin", "Customer-custom_taluk", "Customer-custom_primary_contact_details",
             "Customer-custom_post_office", "Customer-custom_phone","Customer-custom_section_break_3sqq2",
             "Customer-custom_mobile_no", "Customer-custom_email","Customer-custom_pincode_details",
             "Customer-custom_middle_name", "Customer-custom_last_name","Customer-custom_department",

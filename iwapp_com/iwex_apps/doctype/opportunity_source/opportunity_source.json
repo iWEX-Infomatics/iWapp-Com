@@ -8,6 +8,7 @@
  "field_order": [
   "first_name",
   "organisation_name",
+  "device_id",
   "check",
   "middle_name",
   "party_type",
@@ -97,12 +98,17 @@
    "fieldtype": "Table",
    "label": "Details",
    "options": "Opportnity Source Child"
+  },
+  {
+   "fieldname": "device_id",
+   "fieldtype": "Data",
+   "label": "Device Id"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-02-14 00:11:56.975417",
+ "modified": "2024-02-14 22:40:53.169384",
  "modified_by": "Administrator",
  "module": "iWEX Apps",
  "name": "Opportunity Source",
