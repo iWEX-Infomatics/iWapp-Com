@@ -168,7 +168,7 @@ def update_customer():
             if not contact_exists:
                 contact=frappe.get_doc({
                 'doctype': 'Contact',
-                'company_name': i
+                'first_name': i
                 })
                 contact.append('links',
                     {

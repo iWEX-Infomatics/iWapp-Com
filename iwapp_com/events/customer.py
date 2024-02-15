@@ -60,12 +60,17 @@ def after_insert(doc, method):
             "phone":doc.custom_mobile_no,
             "is_primary_mobile_no":1
         })
+    # if doc.custom_phone:
+    #     contact.append("phone_nos",{
+    #         "phone":doc.custom_phone,
+    #         "is_primary_phone":1
+    #     })
     contact.insert()
     contact.save()
     frappe.db.set_value("Customer", doc.name, "custom_contact_created", 1)
-    frappe.db.set_value("Customer", doc.name, "customer_primary_contact", contact.name)
     # frappe.db.set_value("Customer", doc.name, "mobile_no", contact.mobile_no)
-    # frappe.db.set_value("Customer", doc.name, "email_id", contact.email_id)
+    # frappe.db.set_value("Customer", doc.name, "mobile_no", contact.mobile_no)
+    frappe.db.set_value("Customer", doc.name, "customer_primary_contact", contact.name)
     doc.reload()
 
     if doc.custom_pincode_details:

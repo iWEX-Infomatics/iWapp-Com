@@ -59,14 +59,12 @@
    "fieldtype": "Column Break"
   },
   {
-   "depends_on": "eval:!doc.first_name",
    "fieldname": "organisation_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Organisation Name"
   },
   {
-   "depends_on": "eval:!doc.organisation_name",
    "fieldname": "first_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -85,6 +83,7 @@
    "label": "Customer ID/Lead ID"
   },
   {
+   "depends_on": "eval:doc.first_name && doc.organisation_name &&\ndoc.email && doc.mobile_no",
    "fieldname": "check",
    "fieldtype": "Button",
    "label": "Check"
@@ -108,7 +107,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-02-14 22:40:53.169384",
+ "modified": "2024-02-15 18:09:18.726854",
  "modified_by": "Administrator",
  "module": "iWEX Apps",
  "name": "Opportunity Source",

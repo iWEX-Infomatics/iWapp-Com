@@ -7,6 +7,18 @@ def validate(doc, method):
     if doc.company_name:
         doc.custom_organisation_name = remove_suffixes_from_field(doc.company_name)
 
+# @frappe.whitelist()
+# def set_primary_to_mob_and_email():
+#     print("hiiiii")
+#     contact = frappe.db.get_list("Contact", pluck ="name")
+#     print(contact)
+#     if contact:
+#         for i in contact:
+#             doc = frappe.get_doc("Contact", i)
+#             if len(doc.email_ids) > 0:
+#                 for i in doc.email_ids:
+#                     i.is_primary = 1
+#             doc.save()
 
 def remove_suffixes_from_field(field_value, suffixes=None):
     """

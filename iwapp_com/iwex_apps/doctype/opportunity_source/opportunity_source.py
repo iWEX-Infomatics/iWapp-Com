@@ -7,6 +7,17 @@ from frappe.model.document import Document
 
 class OpportunitySource(Document):
 	pass
+# @frappe.whitelist()
+# def get_lead_or_cust(first_name = None, org_name =None):
+# 	if org_name:
+# 		org = frappe.db.get_list('Customer', ['name', 'custom_email',
+#                     'custom_first_name', 'custom_mobile_no', 'custom_organisation_name', 'email_id', 'mobile_no'],
+# 					filters={
+# 					'name': ['like', '%' + org_name + '%'],
+# 		},
+# 		)
+# 		return org
+
 # 	def validate(self):
 # 		mob_no = frappe.db.get_list('Contact',
 # 			filters={
