@@ -1,13 +1,12 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-02-13 16:38:02.573419",
+ "creation": "2024-02-15 22:44:00.010288",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "device_id",
   "document",
   "id",
   "first_name",
@@ -17,22 +16,16 @@
  ],
  "fields": [
   {
-   "fieldname": "device_id",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Device Id"
-  },
-  {
    "fieldname": "document",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Document Type"
+   "label": "Document"
   },
   {
    "fieldname": "id",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Document Id"
+   "label": "Id"
   },
   {
    "fieldname": "first_name",
@@ -64,10 +57,10 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-02-16 21:32:53.951764",
+ "modified": "2024-02-15 22:44:00.010288",
  "modified_by": "Administrator",
  "module": "iWEX Apps",
- "name": "Opportnity Source Child",
+ "name": "Opportunity Hidden Child",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
