@@ -18,6 +18,8 @@ def after_insert(doc, method):
     'custom_taluk':doc.custom_taluk,
     # 'custom_gstin':doc.custom_gstin,
     'custom_post_office':doc.custom_post_office,
+    'tax_category':doc.tax_category,
+    'gstin':doc.tax_id if doc.tax_id else "",
     'is_primary_address':1,
     'is_shipping_address':1
     })

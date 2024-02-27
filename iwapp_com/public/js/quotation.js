@@ -32,7 +32,8 @@ frappe.ui.form.on("Quotation", {
                             "custom_middle_name": doc.custom_middle_name, "custom_last_name": doc.custom_last_name,
                             "custom_mobile": doc.custom_mobile_no, "custom_email": doc.custom_email,
                             "custom_designation": doc.custom_designation, "custom_department": doc.custom_department,
-                            "custom_company_name": doc.custom_organisation_name, "custom_gender": doc.gender
+                            "custom_company_name": doc.custom_organisation_name, "custom_gender": doc.gender,
+                            "custom_tax_id":doc.tax_id
                         })
                     })
             }
@@ -69,7 +70,8 @@ frappe.ui.form.on("Quotation", {
                         "custom_middle_name": doc.custom_middle_name, "custom_last_name": doc.custom_last_name,
                         "custom_mobile": doc.custom_mobile_no, "custom_email": doc.custom_email,
                         "custom_designation": doc.custom_designation, "custom_department": doc.custom_department,
-                        "custom_company_name": doc.custom_organisation_name, "custom_gender": doc.gender
+                        "custom_company_name": doc.custom_organisation_name, "custom_gender": doc.gender,
+                        "custom_tax_id":doc.tax_id
                     })
                 })
         }

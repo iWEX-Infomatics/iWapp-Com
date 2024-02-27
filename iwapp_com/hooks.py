@@ -146,7 +146,8 @@ doc_events = {
 	},
     "Quotation": {
         "before_submit": "iwapp_com.events.quotation.before_submit",
-        "after_insert": "iwapp_com.events.quotation.after_insert"
+        "after_insert": "iwapp_com.events.quotation.after_insert",
+        "validate": "iwapp_com.events.quotation.validate"
 	},
 }
 
@@ -258,7 +259,7 @@ fixtures = [{
             "Customer-custom_contact_created", "Customer-custom_address_created","Customer-custom_is_primary_contact",
             "custom_designation", "Customer-custom_organisation_name","Customer-custom_is_billing_contact",
             "Customer-custom_gstin", "Customer-custom_taluk", "Customer-custom_primary_contact_details",
-            "Customer-custom_post_office", "Customer-custom_phone","Customer-custom_section_break_3sqq2",
+            "Customer-custom_post_office", "Customer-custom_phone",
             "Customer-custom_mobile_no", "Customer-custom_email","Customer-custom_pincode_details",
             "Customer-custom_middle_name", "Customer-custom_last_name","Customer-custom_department",
             "Customer-custom_first_name", "Address-custom_gstin","Customer-custom_column_break_klrpv",
@@ -271,7 +272,7 @@ fixtures = [{
             "Supplier-custom_address_line_1", "Supplier-custom_department",
             "Supplier-custom_salutation", "Supplier-custom_gender", "Supplier-custom__is_primary_contact",
             "Supplier-custom_last_name", "Supplier-custom_middle_name", "Supplier-custom__is_billing_contact",
-            "Supplier-custom_first_name", "Supplier-custom_section_break_oyobw", "Supplier-custom_section_break_dcx8s",
+            "Supplier-custom_first_name", "Supplier-custom_section_break_oyobw",
             "Supplier-custom_county", "Supplier-custom_stateprovince", "Supplier-custom_pincode_details",
             "Supplier-custom_designation", "Employee-custom_address_html",
             "Employee-custom_column_break_q4u31", "Employee-custom_address__contact",

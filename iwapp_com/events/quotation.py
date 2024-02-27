@@ -21,6 +21,13 @@ def after_insert(doc, method):
         pincode.insert()
         pincode.save()
         doc.reload()
+def validate(doc, method):
+    if doc.custom_country == "India" and doc.custom_tax_id:
+        doc.custom_gst_category = "Registered Regular"
+    if doc.custom_country == "India" and doc.custom_tax_id == "":
+        doc.custom_gst_category = "Unregistered"
+    if doc.custom_country != "India":
+        doc.custom_gst_category = "Overseas"
 def before_submit(doc, method):
     address_name = frappe.db.get_value("Dynamic Link", {"link_doctype":doc.quotation_to, "link_name":doc.party_name, "parenttype":"Address"}, "parent")
     if address_name:
@@ -37,8 +44,8 @@ def before_submit(doc, method):
             'email_id':doc.custom_email,
             'is_primary_address':1,
             'is_shipping_address':1,
-            'custom_gst_category':doc.custom_gst_category,
-            'custom_gstin':doc.custom_tax_id
+            'gst_category':doc.custom_gst_category,
+            'gstin':doc.custom_tax_id
         })
     else:
         address=frappe.get_doc({
@@ -56,8 +63,8 @@ def before_submit(doc, method):
         'email_id':doc.custom_email,
         'is_primary_address':1,
         'is_shipping_address':1,
-        'custom_gst_category':doc.custom_gst_category,
-        'custom_gstin':doc.custom_tax_id
+        'gst_category':doc.custom_gst_category,
+        'gstin':doc.custom_tax_id
         })
         address.append('links',
             {
@@ -96,4 +103,4 @@ def before_submit(doc, method):
         #     "phone":doc.phone,
         #     "is_primary_phone":1
         # })
-        contact.save()        
+        contact.save()
