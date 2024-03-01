@@ -331,7 +331,8 @@ fixtures = [{
                 "Customer",
                 "Opportunity",
                 "Quotation",
-                "Opportunity Item"
+                "Opportunity Item",
+                "Address"
             )]
         ]
     }
