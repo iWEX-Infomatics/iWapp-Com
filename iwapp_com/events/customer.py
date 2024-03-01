@@ -46,7 +46,7 @@ def after_insert(doc, method):
     'gender':doc.gender,
     'is_primary_contact':1,
     'is_billing_contact':1,
-    'company_name':doc.custom_organisation_name
+    'company_name':doc.name
     })
     contact.append('links',
         {

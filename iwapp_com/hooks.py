@@ -29,7 +29,8 @@ app_license = "MIT"
 # include js in doctype views
 doctype_js = {"Lead" : "public/js/lead.js", "Supplier" : "public/js/supplier.js",
 "Employee" : "public/js/employee.js", "Customer" : "public/js/customer.js",
-"Opportunity" : "public/js/opportunity.js", "Quotation" : "public/js/quotation.js"}
+"Opportunity" : "public/js/opportunity.js", "Quotation" : "public/js/quotation.js",
+"Address" : "public/js/address.js"}
 doctype_list_js = {"Customer" : "public/js/customer_list.js", "Contact" : "public/js/contact_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -148,6 +149,9 @@ doc_events = {
         "before_submit": "iwapp_com.events.quotation.before_submit",
         "after_insert": "iwapp_com.events.quotation.after_insert",
         "validate": "iwapp_com.events.quotation.validate"
+	},
+    "Address": {
+        "validate": "iwapp_com.events.address.validate"
 	},
 }
 
@@ -318,7 +322,8 @@ fixtures = [{
             "Quotation-custom_company_name", "Quotation-custom_tax_id", "Quotation-custom_department",
             "Quotation-custom_salutation", "Quotation-custom_designation", "Quotation-custom_opportunity_saved",
             "Quotation-custom_section_break_ssgne", "Quotation-custom_pincode_details", "Quotation-custom_section_break_bc7sm",
-            "Quotation-custom_gst_category", "Quotation-custom_column_break_mxu4w"
+            "Quotation-custom_gst_category", "Quotation-custom_column_break_mxu4w",
+            "Address-custom_section_break_u2f3v", "Address-custom_pincode_details"
             )]
     ]
     },
