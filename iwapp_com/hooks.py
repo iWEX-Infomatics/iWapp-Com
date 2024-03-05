@@ -340,6 +340,16 @@ fixtures = [{
                 "Address"
             )]
         ]
+    },
+     {"dt":"Tax Category",
+        "filters": [
+            ["name", "in", (
+                "Export",
+                "Outstate",
+                "Overseas",
+                "Instate"
+            )]
+        ]
     }
     # {
     #     "dt": "Translation",

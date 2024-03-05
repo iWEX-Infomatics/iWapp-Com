@@ -115,13 +115,15 @@ def get_cust_or_lead(email, mobile, organisation, first_name):
                         # self.party_type = i.get('link_doctype')
                         # self.party_name = i.get('link_name')
                         return i.get('link_doctype'), i.get('link_name')
+                    elif i.get('link_doctype') == "Lead":
+                        return i.get('link_doctype'), i.get('link_name')
             if len(organisation) == 1:
                 for i in organisation:
                     if i.get('link_doctype') == "Customer":
                         # self.party_type = i.get('link_doctype')
                         # self.party_name = i.get('link_name')
                         return i.get('link_doctype'), i.get('link_name')
-                    else:
+                    elif i.get('link_doctype') == "Lead":
                         # self.party_type = i.get('link_doctype')
                         # self.party_name = i.get('link_name')
                         return i.get('link_doctype'), i.get('link_name')
@@ -146,15 +148,15 @@ def get_cust_or_lead(email, mobile, organisation, first_name):
                             # self.party_type = i.get('link_doctype')
                             # self.party_name = i.get('link_name')
                             return i.get('link_doctype'), i.get('link_name')
+                        elif i.get('link_doctype') == "Lead":
+                            return i.get('link_doctype'), i.get('link_name')
                 if len(firstname) == 1:
                     for i in firstname:
                         if i.get('link_doctype') == "Customer":
                             # self.party_type = i.get('link_doctype')
                             # self.party_name = i.get('link_name')
                             return i.get('link_doctype'), i.get('link_name')
-                        else:
-                            # self.party_type = i.get('link_doctype')
-                            # self.party_name = i.get('link_name')
+                        elif i.get('link_doctype') == "Lead":
                             return i.get('link_doctype'), i.get('link_name')
             # else:
             #     firstname = frappe.db.get_all('Dynamic Link',

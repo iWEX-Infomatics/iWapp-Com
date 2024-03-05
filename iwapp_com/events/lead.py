@@ -27,7 +27,7 @@ def after_insert(doc, method):
             })
         address.insert()
         address.save()
-        doc.reload() 
+        doc.reload()
 #     contact = frappe.db.get_value("Dynamic Link", {"link_doctype":"Lead", "link_name":doc.name, "link_title":doc.title}, "parent")
 #     if contact:
 #         frappe.db.set_value("Lead", doc.name, "custom_contact", contact)
@@ -168,7 +168,8 @@ def update_customer():
             if not contact_exists:
                 contact=frappe.get_doc({
                 'doctype': 'Contact',
-                'first_name': i
+                'first_name': i,
+                'company_name':i
                 })
                 contact.append('links',
                     {
