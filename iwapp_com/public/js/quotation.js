@@ -16,7 +16,7 @@ frappe.ui.form.on("Quotation", {
                             "custom_middle_name": doc.middle_name, "custom_last_name": doc.last_name,
                             "custom_mobile": doc.mobile_no, "custom_email": doc.email_id,
                             "custom_designation": doc.job_title, "custom_department": doc.custom_department,
-                            "custom_company_name": doc.company_name, "custom_gender": doc.gender
+                            "custom_gender": doc.gender
                         })
                     })
             }
@@ -32,9 +32,11 @@ frappe.ui.form.on("Quotation", {
                             "custom_middle_name": doc.custom_middle_name, "custom_last_name": doc.custom_last_name,
                             "custom_mobile": doc.custom_mobile_no, "custom_email": doc.custom_email,
                             "custom_designation": doc.custom_designation, "custom_department": doc.custom_department,
-                            "custom_company_name": doc.custom_organisation_name, "custom_gender": doc.gender,
-                            "custom_tax_id":doc.tax_id
+                            "custom_gender": doc.gender, "custom_tax_id":doc.tax_id
                         })
+                        // if (doc.customer_type == "Company"){
+                        //     frm.set_value("custom_company_name", doc.name)
+                        // }
                     })
             }
         }
@@ -54,7 +56,7 @@ frappe.ui.form.on("Quotation", {
                         "custom_middle_name": doc.middle_name, "custom_last_name": doc.last_name,
                         "custom_mobile": doc.mobile_no, "custom_email": doc.email_id,
                         "custom_designation": doc.job_title, "custom_department": doc.custom_department,
-                        "custom_company_name": doc.company_name, "custom_gender": doc.gender
+                        "custom_gender": doc.gender
                     })
                 })
         }
@@ -70,9 +72,11 @@ frappe.ui.form.on("Quotation", {
                         "custom_middle_name": doc.custom_middle_name, "custom_last_name": doc.custom_last_name,
                         "custom_mobile": doc.custom_mobile_no, "custom_email": doc.custom_email,
                         "custom_designation": doc.custom_designation, "custom_department": doc.custom_department,
-                        "custom_company_name": doc.custom_organisation_name, "custom_gender": doc.gender,
-                        "custom_tax_id":doc.tax_id
+                        "custom_gender": doc.gender, "custom_tax_id":doc.tax_id
                     })
+                    // if (doc.customer_type == "Company"){
+                    //     frm.set_value("custom_company_name", doc.name)
+                    // }
                 })
         }
 
@@ -80,7 +84,7 @@ frappe.ui.form.on("Quotation", {
     custom_zippostal_code: function (frm) {
         frm.clear_table("custom_pincode_details")
         frm.refresh_fields("custom_pincode_details");
-        if (frm.doc.custom_country == "India" && frm.doc.custom_zippostal_code) {
+        if (frm.doc.custom_country == "India" && frm.doc.custom_automate == 1 && frm.doc.custom_zippostal_code) {
             frappe.db.exists('Pincode', frm.doc.custom_zippostal_code)
                 .then(exists => {
                     if (exists) {

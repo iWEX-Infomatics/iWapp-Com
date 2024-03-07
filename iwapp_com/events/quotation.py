@@ -47,6 +47,9 @@ def before_submit(doc, method):
             'gst_category':doc.custom_gst_category,
             'gstin':doc.custom_tax_id
         })
+        if doc.quotation_to == "Customer":
+            frappe.db.set_value("Customer", doc.party_name, "customer_primary_address", address_name)
+
     else:
         address=frappe.get_doc({
         'doctype': 'Address',
@@ -74,6 +77,9 @@ def before_submit(doc, method):
             })
         address.insert()
         address.save()
+        if doc.quotation_to == "Customer":
+            frappe.db.set_value("Customer", doc.party_name, "customer_primary_address", address.name)
+    
     
     contact_name = frappe.db.get_value("Dynamic Link", {"link_doctype":doc.quotation_to, "link_name":doc.party_name, "parenttype":"Contact"}, "parent")
     if contact_name:
@@ -83,7 +89,7 @@ def before_submit(doc, method):
         contact.last_name = doc.custom_last_name
         contact.designation = doc.custom_designation
         contact.gender = doc.custom_gender
-        contact.company_name = doc.custom_company_name
+        # contact.company_name = doc.custom_company_name
         contact.salutation = doc.custom_salutation
         contact.address = address_name
         contact.department = doc.custom_department
@@ -99,8 +105,7 @@ def before_submit(doc, method):
             "phone":doc.custom_mobile,
             "is_primary_mobile_no":1
         })
-        # contact.append("phone_nos",{
-        #     "phone":doc.phone,
-        #     "is_primary_phone":1
-        # })
         contact.save()
+    if doc.quotation_to == "Customer":
+        frappe.db.set_value("Customer", doc.party_name, "customer_primary_contact", contact_name)
+

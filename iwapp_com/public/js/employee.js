@@ -1,10 +1,10 @@
 frappe.ui.form.on('Employee', {
     refresh: function (frm) {
         // if (frm.doc.custom_employee_primary_address) {
-            frm.fields_dict.custom_address_html.html("");
-            var template1 = `
+        frm.fields_dict.custom_address_html.html("");
+        var template1 = `
                 <form>
-                               <div class="frappe-control input-max-width" data-fieldtype="Float" data-fieldname="total_qty" title="total_qty">
+                            <div class="frappe-control input-max-width" data-fieldtype="Float" data-fieldname="total_qty" title="total_qty">
                               <div class="form-group">
                                   <div class="clearfix">
                                      <label class="control-label" style="padding-right: 0px;"><b>Current Address</b></label>
@@ -21,10 +21,10 @@ frappe.ui.form.on('Employee', {
                             </div>
                             </div></form>
                 `
-            frm.fields_dict.custom_address_html.html(template1);
+        frm.fields_dict.custom_address_html.html(template1);
 
-            frm.fields_dict.custom_permanent_address_html.html("");
-            var template2 = `
+        frm.fields_dict.custom_permanent_address_html.html("");
+        var template2 = `
                 <form>
                                <div class="frappe-control input-max-width" data-fieldtype="Float" data-fieldname="total_qty" title="total_qty">
                               <div class="form-group">
@@ -44,7 +44,7 @@ frappe.ui.form.on('Employee', {
                             </div>
                             </div></form>
                 `
-            frm.fields_dict.custom_permanent_address_html.html(template2);
+        frm.fields_dict.custom_permanent_address_html.html(template2);
         // }
         // if (frm.doc.custom_employee_primary_contact) {
         //     frappe.db.get_doc('Contact', frm.doc.custom_employee_primary_contact)
@@ -107,7 +107,7 @@ frappe.ui.form.on('Employee', {
                                     d.show();
                                 }
                                 else {
-                                    frm.set_value({ "custom_stateprovince": "", "custom_taluk": "", "custom_county": "", "custom_postal_office":"" })
+                                    frm.set_value({ "custom_stateprovince": "", "custom_taluk": "", "custom_county": "", "custom_postal_office": "" })
                                 }
                             })
                     }
@@ -151,7 +151,7 @@ frappe.ui.form.on('Employee', {
                                     d.show();
                                 }
                                 else {
-                                    frm.set_value({ "custom_stateprovince": "", "custom_taluk": "", "custom_county": "", "custom_postal_office":"" })
+                                    frm.set_value({ "custom_stateprovince": "", "custom_taluk": "", "custom_county": "", "custom_postal_office": "" })
                                 }
                             }
                         })
@@ -172,7 +172,7 @@ frappe.ui.form.on('Employee', {
                                     frm.clear_table("custom_permanent_pincode_details")
                                     if (doc.pincode_details) {
                                         $.each(doc.pincode_details, function (i, pin) {
-                                            frm.set_value({ "custom_permanent_stateprovince": pin.state, "custom_permanent_taluk": pin.taluk, "custom_permanent_districtcounty": pin.district, "custom_permanent_post_office":"" })
+                                            frm.set_value({ "custom_permanent_stateprovince": pin.state, "custom_permanent_taluk": pin.taluk, "custom_permanent_districtcounty": pin.district, "custom_permanent_post_office": "" })
                                         })
                                         let d = new frappe.ui.Dialog({
                                             title: 'Select Your Post Office',
@@ -251,8 +251,10 @@ frappe.ui.form.on('Employee', {
     custom_same_as_current_address: function (frm) {
         frm.set_value({ "custom_permanent_country": "", "custom_permanent_postal_code": "", "custom_permanent_door_building_street": "", "custom_permanent_citytown": "", "custom_permanent_stateprovince": "", "custom_permanent_post_office": "", "custom_permanent_taluk": "", "custom_permanent_districtcounty": "" })
         if (frm.doc.custom_same_as_current_address == 1) {
-            frm.set_value({ "custom_permanent_country": frm.doc.custom_country, "custom_permanent_postal_code": frm.doc.custom_postal_code, "custom_permanent_door_building_street": frm.doc.custom_address_line_1, "custom_permanent_citytown": frm.doc.custom_citytown, "custom_permanent_stateprovince": frm.doc.custom_stateprovince, "custom_permanent_post_office": frm.doc.custom_postal_office,
-            "custom_permanent_taluk": frm.doc.custom_taluk, "custom_permanent_districtcounty": frm.doc.custom_county, "permanent_accommodation_type": frm.doc.current_accommodation_type })
+            frm.set_value({
+                "custom_permanent_country": frm.doc.custom_country, "custom_permanent_postal_code": frm.doc.custom_postal_code, "custom_permanent_door_building_street": frm.doc.custom_address_line_1, "custom_permanent_citytown": frm.doc.custom_citytown, "custom_permanent_stateprovince": frm.doc.custom_stateprovince, "custom_permanent_post_office": frm.doc.custom_postal_office,
+                "custom_permanent_taluk": frm.doc.custom_taluk, "custom_permanent_districtcounty": frm.doc.custom_county, "permanent_accommodation_type": frm.doc.current_accommodation_type
+            })
         }
     }
 });

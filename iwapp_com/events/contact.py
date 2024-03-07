@@ -9,9 +9,7 @@ def validate(doc, method):
 
 # @frappe.whitelist()
 # def set_primary_to_mob_and_email():
-#     print("hiiiii")
 #     contact = frappe.db.get_list("Contact", pluck ="name")
-#     print(contact)
 #     if contact:
 #         for i in contact:
 #             doc = frappe.get_doc("Contact", i)

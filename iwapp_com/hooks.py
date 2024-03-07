@@ -302,7 +302,7 @@ fixtures = [{
             "Opportunity-custom_email", "Opportunity-custom_organization_name",
             "Opportunity-custom_check", "Opportunity-custom_customerlead_found",
             "Opportunity-custom_middle_name", "Opportunity-custom_section_break_v3xoi",
-            "Opportunity-custom_last_name","Opportunity-custom_department",
+            "Opportunity-custom_last_name","Opportunity-custom_department", "Opportunity-custom_search",
             "Opportunity-custom_zippostal_code", "Opportunity-custom_door_building_street",
             "Opportunity-custom_column_break_g7qs0", "Opportunity-custom_job_title",
             "Opportunity-custom_whatsapp", "Opportunity-custom_post_office", "Opportunity-custom_districtcounty",
@@ -322,8 +322,9 @@ fixtures = [{
             "Quotation-custom_company_name", "Quotation-custom_tax_id", "Quotation-custom_department",
             "Quotation-custom_salutation", "Quotation-custom_designation", "Quotation-custom_opportunity_saved",
             "Quotation-custom_section_break_ssgne", "Quotation-custom_pincode_details", "Quotation-custom_section_break_bc7sm",
-            "Quotation-custom_gst_category", "Quotation-custom_column_break_mxu4w",
-            "Address-custom_section_break_u2f3v", "Address-custom_pincode_details"
+            "Quotation-custom_gst_category", "Quotation-custom_column_break_mxu4w","Quotation-custom_column_break_qtzxj",
+            "Address-custom_section_break_u2f3v", "Address-custom_pincode_details","Quotation-custom_column_break_2p9vv",
+            "Quotation-custom_automate"
             )]
     ]
     },

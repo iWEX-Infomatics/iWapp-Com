@@ -104,27 +104,27 @@ frappe.ui.form.on("Opportunity", {
         }
     },
     custom_check: function (frm) {
-        if(frm.doc.custom_email && frm.doc.custom_mobile && frm.doc.custom_organization_name && frm.doc.custom_first_name){
-        frappe.call({
-            "method": "iwapp_com.events.opportunity.get_cust_or_lead",
-            "args": {
-                "email": frm.doc.custom_email,
-                "mobile": frm.doc.custom_mobile,
-                "organisation": frm.doc.custom_organization_name,
-                "first_name": frm.doc.custom_first_name
-            },
-            callback: function (r) {
-                if (r.message) {
-                    frm.set_value({ "custom_customerlead_found": 1, "opportunity_from": r.message[0], "party_name": r.message[1] })
-                    frappe.msgprint("Party Name Updated")
-                } else {
-                    frappe.msgprint("No Customer/Lead found")
-                    frm.set_value("custom_lead_not_found", 1)
-                    frm.set_value("party_name", frm.doc.custom_dummy_lead)
-
+        // if (frm.doc.custom_email && frm.doc.custom_mobile && frm.doc.custom_organization_name && frm.doc.custom_first_name) {
+            frappe.call({
+                "method": "iwapp_com.events.opportunity.get_cust_or_lead",
+                "args": {
+                    "email": frm.doc.custom_email,
+                    "mobile": frm.doc.custom_mobile,
+                    "organisation": frm.doc.custom_organization_name,
+                    "first_name": frm.doc.custom_first_name
+                },
+                callback: function (r) {
+                    if (r.message) {
+                        frm.set_value({ "custom_customerlead_found": 1, "opportunity_from": r.message[0], "party_name": r.message[1] })
+                        frappe.msgprint("Party Name Updated")
+                    } else {
+                        frappe.msgprint("No Customer/Lead found")
+                        frm.set_value("custom_lead_not_found", 1)
+                        frm.set_value("opportunity_from", "Lead")
+                        frm.set_value("party_name", frm.doc.custom_dummy_lead)
+                    }
                 }
-            }
-        })
-    }
+            })
+        // }
     },
 })

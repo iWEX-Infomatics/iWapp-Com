@@ -159,24 +159,26 @@ def after_insert(doc, method):
 
 @frappe.whitelist()
 def update_customer():
-    customer = frappe.db.get_list("Customer", pluck ="name")
+    customer = frappe.db.get_list("Customer", filters={"docstatus": 0}, fields=["name", "customer_type"], as_list=False)
     if customer:
         for i in customer:
-            contact_exists = frappe.db.exists("Dynamic Link", {"link_doctype":"Customer", "link_name":i})
+            contact_exists = frappe.db.exists("Dynamic Link", {"link_doctype":"Customer", "parenttype": "Contact", "link_name":i.get("name")})
             if contact_exists:
-                frappe.db.set_value("Customer", i, "custom_contact_created", 1, update_modified=False)
+                c_parent = frappe.db.get_list("Dynamic Link", filters={"link_doctype": "Customer", "parenttype": "Contact", "link_name": i.get("name")}, fields=["parent"])
+                for p in c_parent:
+                    frappe.db.set_value("Customer", i.get("name"), {"custom_contact_created" : 1, "customer_primary_contact" : p.get("parent")}, update_modified=False)
             if not contact_exists:
                 contact=frappe.get_doc({
                 'doctype': 'Contact',
-                'first_name': i,
-                'company_name':i
+                'first_name': i.get("name"),
+                'company_name': i.get("customer_type") if i.get("customer_type") == "Company" else ""
                 })
                 contact.append('links',
                     {
                         "link_doctype": "Customer",
-                        "link_name":i
+                        "link_name": i.get("name")
 
                     })
                 contact.insert()
                 contact.save()
-                frappe.db.set_value("Customer", i, "custom_contact_created", 1, update_modified=False)
+                frappe.db.set_value("Customer", i.get("name"), {"custom_contact_created": 1, "customer_primary_contact" :contact.name}, update_modified=False)
