@@ -4,7 +4,7 @@ import json
 
 
 def before_insert(doc, method):
-    if doc.custom_search == 1 and doc.custom_customerlead_found == 0:
+    if doc.custom_search == 1:
         lead = frappe.get_doc({
             "doctype":"Lead",
             "first_name":doc.custom_first_name,
@@ -33,8 +33,7 @@ def before_insert(doc, method):
         doc.party_name = lead.name
 def after_insert(doc, method):
     if (doc.opportunity_from and doc.party_name):
-        frappe.db.set_value("Opportunity", doc.name, "custom_customerlead_found", 1)
-        frappe.db.set_value("Opportunity", doc.name, "custom_opportunity_created", 1)
+        frappe.db.set_value("Opportunity", doc.name, {"custom_customerlead_found" : 1, "custom_opportunity_created": 1})
         doc.reload()
     if doc.custom_pincode_details:
         pincode=frappe.get_doc({

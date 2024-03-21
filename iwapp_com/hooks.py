@@ -343,16 +343,16 @@ fixtures = [{
             )]
         ]
     },
-     {"dt":"Tax Category",
-        "filters": [
-            ["name", "in", (
-                "Export",
-                "Outstate",
-                "Overseas",
-                "Instate"
-            )]
-        ]
-    }
+    #  {"dt":"Tax Category",
+    #     "filters": [
+    #         ["name", "in", (
+    #             "Export",
+    #             "Outstate",
+    #             "Overseas",
+    #             "Instate"
+    #         )]
+    #     ]
+    # }
     # {
     #     "dt": "Translation",
     #     "filters": [
