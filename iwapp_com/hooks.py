@@ -131,7 +131,8 @@ doc_events = {
         "validate": "iwapp_com.events.contact.validate"
 	},
      "Customer": {
-        "after_insert": "iwapp_com.events.customer.after_insert"
+        "after_insert": "iwapp_com.events.customer.after_insert",
+        # "validate": "iwapp_com.events.customer.validate"
 	},
      "Supplier": {
         "after_insert": "iwapp_com.events.supplier.after_insert"
@@ -324,7 +325,7 @@ fixtures = [{
             "Quotation-custom_section_break_ssgne", "Quotation-custom_pincode_details", "Quotation-custom_section_break_bc7sm",
             "Quotation-custom_gst_category", "Quotation-custom_column_break_mxu4w","Quotation-custom_column_break_qtzxj",
             "Address-custom_section_break_u2f3v", "Address-custom_pincode_details","Quotation-custom_column_break_2p9vv",
-            "Quotation-custom_automate"
+            "Quotation-custom_automate", "Lead-custom_section_break_vewwc", "Lead-custom_pincode_details"
             )]
     ]
     },

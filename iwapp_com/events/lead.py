@@ -2,7 +2,25 @@ import frappe
 
 
 def after_insert(doc, method):
-    if doc.city and doc.custom_door_building_street:
+    if doc.custom_pincode_details:
+        pincode=frappe.get_doc({
+        'doctype': 'Pincode',
+        'country': doc.country,
+        'pincode':doc.custom_zippostal_code
+        })
+        for i in doc.custom_pincode_details:
+            pincode.append('pincode_details',
+        {
+            "post_office": i.post_office,
+            "taluk":i.taluk,
+            "division":i.division,
+            "district":i.district,
+            "state":i.state
+        })
+        pincode.insert()
+        pincode.save()
+        doc.reload()
+    if doc.country and doc.city and doc.custom_door_building_street:
         address=frappe.get_doc({
         'doctype': 'Address',
         'address_title': doc.company_name if doc.company_name else doc.lead_name,

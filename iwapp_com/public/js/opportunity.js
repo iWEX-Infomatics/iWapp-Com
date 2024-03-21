@@ -1,11 +1,11 @@
 frappe.ui.form.on("Opportunity", {
     refresh: function (frm) {
-        if (frm.doc.custom_customerlead_found == 0) {
+        if (frm.doc.custom_customerlead_found == 0 && frm.doc.custom_search == 1) {
             frm.set_value("opportunity_from", "Lead")
         }
     },
     opportunity_from: function (frm) {
-        if (frm.doc.opportunity_from == "Lead") {
+        if (frm.doc.opportunity_from == "Lead" && frm.doc.custom_search == 1) {
             frappe.call({
                 "method": "iwapp_com.events.opportunity.create_dummy_lead",
                 callback: function (r) {

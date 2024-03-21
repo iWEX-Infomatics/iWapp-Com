@@ -4,7 +4,7 @@ import json
 
 
 def before_insert(doc, method):
-    if doc.custom_customerlead_found == 0:
+    if doc.custom_search == 1 and doc.custom_customerlead_found == 0:
         lead = frappe.get_doc({
             "doctype":"Lead",
             "first_name":doc.custom_first_name,
