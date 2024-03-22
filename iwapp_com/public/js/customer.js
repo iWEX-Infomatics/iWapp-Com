@@ -87,12 +87,17 @@ frappe.ui.form.on("Customer", {
     },
     custom_stateprovince: function (frm) {
         if (frm.doc.custom_country == "India" && frm.doc.custom_stateprovince == "Kerala") {
-            frm.set_value("tax_category", "Instate")
+            frm.set_value("tax_category", "In-State")
         }
         if (frm.doc.custom_country == "India" && frm.doc.custom_stateprovince != "Kerala") {
-            frm.set_value("tax_category", "Outstate")
+            frm.set_value("tax_category", "Out-State")
         }
     },
+    onload:function(frm) {
+		if(frm.doc.lead_name){
+		    frm.set_value("custom_is_from_lead", 1)
+		}
+	},
     custom_country: function (frm) {
         if (frm.doc.custom_country != "India") {
             frm.set_value("tax_category", "Overseas")

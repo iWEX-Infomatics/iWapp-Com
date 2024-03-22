@@ -149,7 +149,7 @@ doc_events = {
     "Quotation": {
         "before_submit": "iwapp_com.events.quotation.before_submit",
         "after_insert": "iwapp_com.events.quotation.after_insert",
-        "validate": "iwapp_com.events.quotation.validate"
+        # "validate": "iwapp_com.events.quotation.validate"
 	},
     "Address": {
         "validate": "iwapp_com.events.address.validate"
@@ -325,7 +325,8 @@ fixtures = [{
             "Quotation-custom_section_break_ssgne", "Quotation-custom_pincode_details", "Quotation-custom_section_break_bc7sm",
             "Quotation-custom_gst_category", "Quotation-custom_column_break_mxu4w","Quotation-custom_column_break_qtzxj",
             "Address-custom_section_break_u2f3v", "Address-custom_pincode_details","Quotation-custom_column_break_2p9vv",
-            "Quotation-custom_automate", "Lead-custom_section_break_vewwc", "Lead-custom_pincode_details"
+            "Quotation-custom_automate", "Lead-custom_section_break_vewwc", "Lead-custom_pincode_details",
+            "Customer-custom_is_from_lead"
             )]
     ]
     },
