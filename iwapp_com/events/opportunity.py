@@ -54,6 +54,25 @@ def after_insert(doc, method):
         pincode.save()
         doc.reload()
 
+def on_update(doc, method):
+    if doc.contact_person:
+        contact = frappe.get_doc("Contact", doc.contact_person)
+        if doc.job_title:
+            contact.designation = doc.job_title
+        if doc.contact_email:
+            contact.email_ids.clear()
+            contact.append("email_ids",{
+                "email_id":doc.contact_email,
+                "is_primary":1
+            })
+        if doc.contact_mobile:
+            contact.phone_nos.clear()
+            contact.append("phone_nos",{
+                "phone":doc.contact_mobile,
+                "is_primary_mobile_no":1
+            })
+        contact.save()
+
 # def remove_suffixes_from_field(field_value, suffixes=None):
 #     if suffixes is None:
 #         suffixes = ["Pvt Ltd", "Ltd", "LLP", "Co Ltd"]

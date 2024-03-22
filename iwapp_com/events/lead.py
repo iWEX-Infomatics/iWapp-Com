@@ -2,6 +2,7 @@ import frappe
 
 
 def after_insert(doc, method):
+    doc.custom_lead_created = 1
     if doc.custom_pincode_details:
         pincode=frappe.get_doc({
         'doctype': 'Pincode',
