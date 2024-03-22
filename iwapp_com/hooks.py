@@ -152,7 +152,7 @@ doc_events = {
         # "validate": "iwapp_com.events.quotation.validate"
 	},
     "Address": {
-        "validate": "iwapp_com.events.address.validate"
+        "after_insert": "iwapp_com.events.address.after_insert"
 	},
 }
 

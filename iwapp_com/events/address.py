@@ -1,6 +1,6 @@
 import frappe
 
-def validate(doc, method):
+def after_insert(doc, method):
    if doc.custom_pincode_details:
     pincode=frappe.get_doc({
     'doctype': 'Pincode',
